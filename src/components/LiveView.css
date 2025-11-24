@@ -1,0 +1,273 @@
+.live-view-container {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 20px;
+  min-height: 500px;
+  position: relative;
+}
+
+.live-view-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  border-radius: 0;
+  padding: 0;
+}
+
+.view-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 10;
+}
+
+.fullscreen-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.fullscreen-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.road-simulation {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to bottom, #87ceeb 0%, #98d8e8 50%, #90c090 100%);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.live-view-container.fullscreen .road-simulation {
+  height: 100vh;
+  border-radius: 0;
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, #87ceeb 0%, #e0f6ff 100%);
+}
+
+.sun {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 3rem;
+  animation: sunGlow 3s ease-in-out infinite;
+}
+
+@keyframes sunGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+}
+
+.cloud {
+  position: absolute;
+  font-size: 2.5rem;
+  animation: cloudFloat 20s linear infinite;
+  opacity: 0.8;
+}
+
+.cloud-1 {
+  top: 50px;
+  left: 20%;
+  animation-duration: 25s;
+}
+
+.cloud-2 {
+  top: 100px;
+  left: 60%;
+  animation-duration: 30s;
+}
+
+@keyframes cloudFloat {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(calc(100vw + 100px));
+  }
+}
+
+.mountains {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.mountain {
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 200px solid #8b7355;
+  filter: brightness(0.7);
+}
+
+.mountain-1 {
+  border-bottom-color: #6b5d4f;
+  margin-bottom: -20px;
+}
+
+.mountain-2 {
+  border-bottom-color: #8b7355;
+  transform: scale(1.2);
+  margin-bottom: -10px;
+}
+
+.mountain-3 {
+  border-bottom-color: #5d4f41;
+  margin-bottom: -30px;
+}
+
+.trees {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 5;
+}
+
+.tree {
+  font-size: 2.5rem;
+  transition: transform 0.1s linear;
+}
+
+.road {
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  width: 30%;
+  height: 50%;
+  background: linear-gradient(to bottom, #555 0%, #333 100%);
+  clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.road-lines {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 100%;
+}
+
+.road-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 40px;
+  background: #ffeb3b;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 15px 30px;
+  border-radius: 15px;
+  z-index: 20;
+}
+
+.overlay-info {
+  display: flex;
+  gap: 25px;
+  color: white;
+  font-weight: 600;
+}
+
+.overlay-item {
+  font-size: 1rem;
+}
+
+.view-description {
+  margin-top: 20px;
+  text-align: center;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+}
+
+.view-description h3 {
+  color: #667eea;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.view-description p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.live-view-container.fullscreen .view-description {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .road-simulation {
+    height: 400px;
+  }
+
+  .overlay-info {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  .sun {
+    font-size: 2rem;
+    top: 20px;
+    right: 30px;
+  }
+
+  .cloud {
+    font-size: 1.8rem;
+  }
+
+  .tree {
+    font-size: 1.8rem;
+  }
+
+  .mountain {
+    border-left-width: 80px;
+    border-right-width: 80px;
+    border-bottom-width: 120px;
+  }
+}
