@@ -9,7 +9,8 @@ function CafeOrders() {
   const [cardInfo, setCardInfo] = useState({
     number: '',
     name: '',
-    expiry: '',
+    expiryMonth: '',
+    expiryYear: '',
     cvv: ''
   })
 
@@ -103,11 +104,11 @@ function CafeOrders() {
     // Προσομοίωση πληρωμής
     setOrderConfirmed(true)
     setTimeout(() => {
-      setOrderConfirmed(false)
-      setShowCheckout(false)
-      setCart([])
-      setSelectedCafe(null)
-      setCardInfo({ number: '', name: '', expiry: '', cvv: '' })
+        setOrderConfirmed(false)
+        setShowCheckout(false)
+        setCart([])
+        setSelectedCafe(null)
+        setCardInfo({ number: '', name: '', expiryMonth: '', expiryYear: '', cvv: '' })
     }, 4000)
   }
 
@@ -241,12 +242,16 @@ function CafeOrders() {
                     <div className="form-group">
                       <label>Αριθμός Κάρτας</label>
                       <input 
-                        type="text"
+                        type="tel"
+                        inputMode="numeric"
+                        pattern="[0-9\s]*"
                         placeholder="1234 5678 9012 3456"
                         value={cardInfo.number}
                         onChange={(e) => setCardInfo({...cardInfo, number: e.target.value})}
                         maxLength="19"
                         required
+                        aria-label="Card number"
+                        autoComplete="cc-number"
                       />
                     </div>
                     <div className="form-group">
@@ -257,29 +262,55 @@ function CafeOrders() {
                         value={cardInfo.name}
                         onChange={(e) => setCardInfo({...cardInfo, name: e.target.value})}
                         required
+                        aria-label="Cardholder name"
+                        autoComplete="cc-name"
                       />
                     </div>
                     <div className="form-row">
                       <div className="form-group">
                         <label>Λήξη</label>
-                        <input 
-                          type="text"
-                          placeholder="MM/YY"
-                          value={cardInfo.expiry}
-                          onChange={(e) => setCardInfo({...cardInfo, expiry: e.target.value})}
-                          maxLength="5"
-                          required
-                        />
+                        <div className="expiry-row">
+                          <input
+                            type="tel"
+                            inputMode="numeric"
+                            pattern="[0-9]*"
+                            placeholder="MM"
+                            value={cardInfo.expiryMonth}
+                            onChange={(e) => setCardInfo({...cardInfo, expiryMonth: e.target.value.replace(/[^0-9]/g, '').slice(0,2)})}
+                            maxLength="2"
+                            required
+                            className="small-input"
+                            aria-label="Expiry month"
+                            autoComplete="cc-exp-month"
+                          />
+                          <input
+                            type="tel"
+                            inputMode="numeric"
+                            pattern="[0-9]*"
+                            placeholder="YYYY"
+                            value={cardInfo.expiryYear}
+                            onChange={(e) => setCardInfo({...cardInfo, expiryYear: e.target.value.replace(/[^0-9]/g, '').slice(0,4)})}
+                            maxLength="4"
+                            required
+                            className="small-input"
+                            aria-label="Expiry year"
+                            autoComplete="cc-exp-year"
+                          />
+                        </div>
                       </div>
                       <div className="form-group">
                         <label>CVV</label>
                         <input 
-                          type="text"
+                          type="tel"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
                           placeholder="123"
                           value={cardInfo.cvv}
-                          onChange={(e) => setCardInfo({...cardInfo, cvv: e.target.value})}
-                          maxLength="3"
+                          onChange={(e) => setCardInfo({...cardInfo, cvv: e.target.value.replace(/[^0-9]/g,'').slice(0,4)})}
+                          maxLength="4"
                           required
+                          aria-label="Card security code"
+                          autoComplete="cc-csc"
                         />
                       </div>
                     </div>

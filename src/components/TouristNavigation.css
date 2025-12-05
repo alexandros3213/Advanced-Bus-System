@@ -1,5 +1,5 @@
 .tourist-navigation {
-  background: #f8f9fa;
+  background: var(--surface);
   border-radius: 15px;
   padding: 25px;
   min-height: 600px;
@@ -10,17 +10,17 @@
   text-align: center;
   margin-bottom: 25px;
   padding-bottom: 20px;
-  border-bottom: 2px solid #e9ecef;
+  border-bottom: 2px solid rgba(0,0,0,0.06);
 }
 
 .navigation-header h1 {
-  color: #667eea;
+  color: var(--accent);
   font-size: 2rem;
   margin-bottom: 10px;
 }
 
 .current-location {
-  color: #666;
+  color: var(--muted);
   font-size: 1rem;
   font-weight: 600;
 }
@@ -37,31 +37,31 @@
   flex: 1;
   max-width: 250px;
   padding: 15px 25px;
-  border: 2px solid #667eea;
-  background: white;
+  border: 2px solid var(--accent);
+  background: var(--card-bg);
   border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
   font-size: 1rem;
-  color: #667eea;
+  color: var(--accent);
   transition: all 0.3s ease;
 }
 
 .mode-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .mode-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--app-bg);
+  color: var(--on-accent);
   border-color: transparent;
   transform: scale(1.05);
 }
 
 /* Active Navigation */
 .active-navigation {
-  background: white;
+  background: var(--card-bg);
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -75,8 +75,8 @@
 
 .stop-nav-btn {
   padding: 8px 16px;
-  background: #e74c3c;
-  color: white;
+  background: var(--danger);
+  color: var(--on-accent);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -85,7 +85,7 @@
 }
 
 .stop-nav-btn:hover {
-  background: #c0392b;
+  background: var(--danger-2);
   transform: scale(1.05);
 }
 
@@ -96,7 +96,7 @@
 .nav-map-simulation {
   width: 100%;
   height: 300px;
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  background: linear-gradient(135deg, var(--success-2) 0%, var(--success) 100%);
   border-radius: 12px;
   position: relative;
   overflow: hidden;
@@ -129,10 +129,10 @@
   left: 32%;
   width: 35%;
   height: 3px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
   transform: rotate(-25deg);
   transform-origin: left center;
-  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   animation: routePulse 2s ease-in-out infinite;
 }
 
@@ -169,7 +169,7 @@
   gap: 15px;
   margin-bottom: 20px;
   padding: 20px;
-  background: #f8f9fa;
+  background: var(--surface);
   border-radius: 12px;
 }
 
@@ -177,7 +177,7 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: 20px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -186,12 +186,12 @@
   display: block;
   font-size: 3rem;
   font-weight: 700;
-  color: #667eea;
+  color: var(--accent);
 }
 
 .distance-label {
   display: block;
-  color: #666;
+  color: var(--muted);
   font-size: 1rem;
   margin-top: 5px;
 }
@@ -202,11 +202,11 @@
   justify-content: center;
   gap: 10px;
   padding: 15px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
+  color: var(--text-color);
 }
 
 .time-icon {
@@ -219,13 +219,13 @@
   align-items: center;
   justify-content: center;
   padding: 15px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
 }
 
 .direction-arrow {
   font-size: 3rem;
-  color: #667eea;
+  color: var(--accent);
   margin-bottom: 10px;
   animation: arrowBounce 1s ease-in-out infinite;
 }
@@ -240,15 +240,15 @@
 }
 
 .direction-text {
-  color: #333;
+  color: var(--text-color);
   font-weight: 600;
   text-align: center;
 }
 
 .destination-info {
   padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--app-bg);
+  color: var(--on-accent);
   border-radius: 12px;
   text-align: center;
 }
@@ -282,7 +282,7 @@
 .map-container-nav {
   width: 100%;
   height: 400px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -292,7 +292,7 @@
 .map-simulation-nav {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+  background: linear-gradient(135deg, var(--success-2) 0%, rgba(0,0,0,0.02) 50%, var(--success) 100%);
   position: relative;
   background-image: 
     repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(0,0,0,0.02) 30px, rgba(0,0,0,0.02) 60px),
@@ -316,8 +316,8 @@
   height: 40px;
   border-radius: 8px;
   border: none;
-  background: white;
-  color: #667eea;
+  background: var(--card-bg);
+  color: var(--accent);
   font-size: 1.3rem;
   font-weight: 700;
   cursor: pointer;
@@ -329,8 +329,8 @@
 }
 
 .zoom-btn:hover {
-  background: #667eea;
-  color: white;
+  background: var(--accent);
+  color: var(--on-accent);
   transform: scale(1.1);
 }
 
@@ -355,7 +355,7 @@
   transform: translate(-50%, -50%);
   width: 50px;
   height: 50px;
-  background: rgba(102, 126, 234, 0.3);
+  background: rgba(111, 70, 255, 0.18);
   border-radius: 50%;
   animation: pulseRing 2s ease-in-out infinite;
 }
@@ -427,7 +427,7 @@
 }
 
 .category-section h3 {
-  color: #667eea;
+  color: var(--accent);
   margin-bottom: 15px;
   font-size: 1.4rem;
 }
@@ -443,7 +443,7 @@
   align-items: center;
   gap: 15px;
   padding: 18px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -454,13 +454,13 @@
 .location-card:hover {
   transform: translateX(5px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-color: #667eea;
+  border-color: var(--accent);
 }
 
 .location-card.selected {
-  border-color: #667eea;
-  background: #f8f9ff;
-  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.2);
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
 }
 
 .location-icon {
@@ -473,13 +473,13 @@
 }
 
 .location-info h4 {
-  color: #333;
+  color: var(--text-color);
   font-size: 1.1rem;
   margin-bottom: 5px;
 }
 
 .location-meta {
-  color: #666;
+  color: var(--muted);
   font-size: 0.9rem;
   margin-bottom: 5px;
   display: flex;
@@ -497,8 +497,8 @@
   height: 50px;
   border-radius: 50%;
   border: none;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--app-bg);
+  color: var(--on-accent);
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -519,7 +519,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: var(--card-bg);
   padding: 25px;
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.15);
@@ -546,12 +546,12 @@
   border: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: #666;
+  color: var(--muted);
   transition: color 0.3s ease;
 }
 
 .close-details:hover {
-  color: #333;
+  color: var(--text-color);
 }
 
 .details-header {
@@ -560,7 +560,7 @@
   gap: 15px;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid var(--surface);
 }
 
 .details-icon {
@@ -568,13 +568,13 @@
 }
 
 .details-header h3 {
-  color: #667eea;
+  color: var(--accent);
   font-size: 1.5rem;
   margin-bottom: 5px;
 }
 
 .details-distance {
-  color: #666;
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
@@ -583,7 +583,7 @@
 }
 
 .details-description {
-  color: #555;
+  color: var(--muted);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -599,7 +599,7 @@
   align-items: center;
   gap: 10px;
   padding: 12px;
-  background: #f8f9fa;
+  background: var(--surface);
   border-radius: 8px;
 }
 
@@ -610,8 +610,8 @@
 .start-navigation-btn {
   width: 100%;
   padding: 18px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--app-bg);
+  color: var(--on-accent);
   border: none;
   border-radius: 12px;
   font-size: 1.1rem;
@@ -643,7 +643,7 @@
 }
 
 .bus-stops-list h3 {
-  color: #667eea;
+  color: var(--accent);
   margin-bottom: 10px;
   font-size: 1.4rem;
 }
@@ -653,7 +653,7 @@
   align-items: center;
   gap: 15px;
   padding: 20px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -665,13 +665,13 @@
 .bus-stop-card:hover {
   transform: translateX(5px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-color: #667eea;
+  border-color: var(--accent);
 }
 
 .bus-stop-card.selected {
-  border-color: #667eea;
-  background: #f8f9ff;
-  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.2);
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
 }
 
 .bus-stop-icon {
@@ -684,13 +684,13 @@
 }
 
 .bus-stop-info h4 {
-  color: #333;
+  color: var(--text-color);
   font-size: 1.1rem;
   margin-bottom: 8px;
 }
 
 .bus-stop-meta {
-  color: #666;
+  color: var(--muted);
   font-size: 0.9rem;
   margin-bottom: 10px;
   display: flex;
@@ -706,8 +706,8 @@
 }
 
 .route-badge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: var(--on-accent);
   padding: 5px 12px;
   border-radius: 12px;
   font-size: 0.8rem;
@@ -715,7 +715,7 @@
 }
 
 .next-bus {
-  color: #28a745;
+  color: var(--success);
   font-weight: 600;
   font-size: 0.9rem;
 }
@@ -731,7 +731,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: var(--card-bg);
   padding: 25px;
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.15);
@@ -740,11 +740,11 @@
 }
 
 .bus-stop-details h3 {
-  color: #667eea;
+  color: var(--accent);
   font-size: 1.5rem;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid var(--surface);
 }
 
 .bus-details-content {
@@ -759,40 +759,40 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  background: #f8f9fa;
+  background: var(--surface);
   border-radius: 8px;
 }
 
 .bus-detail-item .label {
-  color: #666;
+  color: var(--muted);
   font-weight: 600;
 }
 
 .bus-detail-item .value {
-  color: #333;
+  color: var(--text-color);
   font-weight: 700;
 }
 
 .bus-detail-item .value.highlight {
-  color: #28a745;
+  color: var(--success);
   font-size: 1.1rem;
 }
 
 .bus-detail-route {
   padding: 15px;
-  background: #f8f9fa;
+  background: var(--surface);
   border-radius: 8px;
 }
 
 .bus-detail-route .label {
-  color: #666;
+  color: var(--muted);
   font-weight: 600;
   display: block;
   margin-bottom: 8px;
 }
 
 .route-text {
-  color: #333;
+  color: var(--text-color);
   line-height: 1.6;
 }
 

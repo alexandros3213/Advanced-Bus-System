@@ -7,6 +7,13 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  /* transition helper used for theme cross-fades */
+  --transition: background-color 350ms ease, color 350ms ease, border-color 350ms ease, box-shadow 350ms ease, transform 200ms ease;
+  /* neutral surface tone used for subtle card/backdrop surfaces */
+  --surface: #f8f9fa;
+  /* text color used on accent gradients */
+  --on-accent: #ffffff;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -65,4 +72,118 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Theme classes applied to <html> by the app */
+.theme-light {
+  /* light theme variables */
+  --app-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --page-bg: #ffffff;
+  --text-color: #222;
+  --card-bg: #ffffff;
+  --muted: #666;
+  --accent: #6f46ff;
+  --accent-2: #5a32d9;
+  --success: #10b981;
+  --success-2: #6ee7b7;
+  --danger: #e74c3c;
+  --danger-2: #c0392b;
+  --surface: #f8f9fa;
+  --on-accent: #ffffff;
+}
+.theme-dark {
+  /* dark theme variables */
+  --app-bg: linear-gradient(135deg, #2b2b4a 0%, #1f1b3a 100%);
+  --page-bg: #14141a;
+  --text-color: #e6e6ea;
+  --card-bg: #1f1f26;
+  --muted: #bfc4d6;
+  --accent: #7b61ff;
+  --accent-2: #5b3dff;
+  --success: #34d399;
+  --success-2: #16a34a;
+  --danger: #ef4444;
+  --danger-2: #dc2626;
+  --surface: #111218;
+  --on-accent: #ffffff;
+}
+
+/* sensible defaults if no theme class present */
+:root {
+  --app-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --page-bg: #ffffff;
+  --text-color: #222;
+  --card-bg: #ffffff;
+  --muted: #666;
+  --accent: #6f46ff;
+  --surface: #f8f9fa;
+  --on-accent: #ffffff;
+}
+
+/* Basic elements use the variables */
+body {
+  background: var(--app-bg);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+/* Ensure most UI text follows the theme text color by default */
+.app-container,
+.app-container * {
+  color: var(--text-color);
+}
+
+/* Keep clear contrast for elements that use the accent/app-bg as their background */
+.view-selector button.active,
+.nav-btn,
+.start-navigation-btn,
+.destination-info,
+.mode-btn.active,
+.nav-btn,
+.route-badge {
+  color: var(--on-accent) !important;
+}
+
+/* Animate core containers for smooth theme switching */
+.app-container,
+.tourist-navigation,
+.active-navigation,
+.map-container-nav,
+.location-card,
+.location-details-panel,
+.mode-btn,
+.nav-btn,
+.destination-info,
+.start-navigation-btn,
+.bus-stop-card {
+  transition: var(--transition);
+}
+
+
+/* Override some components to respect theme variables */
+.app-container {
+  background: transparent;
+}
+
+.view-selector button {
+  background: var(--card-bg);
+  color: var(--accent);
+}
+
+.passenger-view {
+  background: var(--card-bg);
+  color: var(--text-color);
+}
+
+.info-item {
+  background: var(--card-bg);
+  color: var(--text-color);
+}
+
+.route-item {
+  background: linear-gradient(135deg, rgba(110,120,255,0.06) 0%, rgba(247,249,255,1) 100%);
+}
+
+.tab-btn.active {
+  color: var(--accent);
 }
