@@ -11,3 +11,4 @@ yarn-debug.log*
 .idea/
 build/
 coverage/
+src/assets/*.mp4
